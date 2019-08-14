@@ -1,0 +1,78 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"Role","metadata":{"annotations":{},"name":"httpd-operator","namespace":"operators"},"rules":[{"apiGroups":[""],"resources":["pods","services","endpoints","persistentvolumeclaims","configmaps","secrets"],"verbs":["create","update","delete","get","list","watch","patch"]},{"apiGroups":[""],"resources":["namespaces"],"verbs":["get"]},{"apiGroups":["route.openshift.io"],"resources":["routes"],"verbs":["create","update","delete","get","list","watch","patch"]},{"apiGroups":["saberkan.fr"],"resources":["httpd","httpd/status"],"verbs":["create","update","delete","get","list","watch","patch- \"*\""]}]}
+  creationTimestamp: "2019-08-14T11:42:48Z"
+  name: httpd-operator
+  namespace: operators
+  resourceVersion: "38163"
+  selfLink: /apis/rbac.authorization.k8s.io/v1/namespaces/operators/roles/httpd-operator
+  uid: a3a492ab-be88-11e9-8aba-e291566f8de9
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  - services
+  - endpoints
+  - persistentvolumeclaims
+  - configmaps
+  - secrets
+  verbs:
+  - create
+  - update
+  - delete
+  - get
+  - list
+  - watch
+  - patch
+- apiGroups:
+  - ""
+  resources:
+  - namespaces
+  verbs:
+  - get
+  - list
+- apiGroups:
+  - route.openshift.io
+  resources:
+  - routes
+  verbs:
+  - create
+  - update
+  - delete
+  - get
+  - list
+  - watch
+  - patch
+- apiGroups:
+  - ""
+  - extensions
+  resources:
+  - deployments
+  - replicasets
+  - deployments/finalizers
+  verbs:
+  - '*'
+- apiGroups:
+  - ""
+  - apps.openshift.io
+  resources:
+  - deploymentconfigs
+  verbs:
+  - '*'
+- apiGroups:
+  - httpd.saberkan.fr
+  resources:
+  - httpds
+  - httpds/status
+  verbs:
+  - create
+  - update
+  - delete
+  - get
+  - list
+  - watch
+  - patch- "*"

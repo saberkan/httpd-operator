@@ -1,0 +1,24 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: "2019-08-14T11:42:39Z"
+  labels:
+    rbac.authorization.k8s.io/aggregate-to-admin: "true"
+  name: httpd-admin-rules
+  resourceVersion: "33728"
+  selfLink: /apis/rbac.authorization.k8s.io/v1/clusterroles/httpd-admin-rules
+  uid: 9e3949f3-be88-11e9-8aba-e291566f8de9
+rules:
+- apiGroups:
+  - httpd.saberkan.fr
+  resources:
+  - httpds
+  - httpds/status
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch

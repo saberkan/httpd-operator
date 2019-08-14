@@ -1,0 +1,15 @@
+---
+# - my_var_value : should ve myVarValue on the CR
+# - meta.namespace from the CR thanks to ansible-operator
+
+- name: deploy the application
+  hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: Set up httpd
+    include_role:
+      name: ./roles/httpd
+    vars:
+      _httpd_namespace: "{{ meta.namespace }}"
+      _my_var_value: "{{ my_var_value }}"
+

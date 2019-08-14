@@ -1,0 +1,5 @@
+---
+- version: v1
+  group: httpd.saberkan.fr
+  kind: Httpd
+  playbook: /opt/ansible/playbook.yaml

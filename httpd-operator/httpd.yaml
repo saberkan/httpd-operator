@@ -1,0 +1,7 @@
+apiVersion: httpd.saberkan.fr/v1
+kind: Httpd
+metadata:
+  name: example-httpd
+spec:
+  myVarValue: "IT WORKS WITH OPERATOR"
+  size: 1
