@@ -1,0 +1,5 @@
+channels:
+- currentCSV: httpd-operator.v1.0.0
+  name: alpha
+defaultChannel: alpha
+packageName: httpd-operator

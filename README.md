@@ -68,3 +68,41 @@ consider to use jinja for template in roles:
 </pre>
 
 # Step 5 : Generate operator manifest
+<pre>
+operator-sdk olm-catalog gen-csv --csv-version 1.0.0
+</pre>
+
+check the generated dir with csv and package under deploy/olm-catalog
+
+# Step 6 : Deploy the operator
+<pre>
+oc create -f operator_group.yaml
+oc create -f deploy/olm-catalog/httpd-operator/1.0.0/httpd-operator.v1.0.0.clusterserviceversion.yaml
+</pre>
+At this step all requirements are missing, CRD and roles should be created
+You need to edit it and add customresourcedef requirements, and minKubeversion
+If requirement still missing, edit csv on yaml, delete previous one and recreate otherwise, midification is not checked again. //TODO : this might be a big, check with team
+
+
+# Step 7 : 
+<pre>
+# IF it doesn't exist
+oc create -f deploy/crds/httpd_v1_httpd_crd.yaml
+oc create -f deploy/service_account.yaml
+oc create -f deploy/role_edited.yaml 
+oc create -f deploy/role_binding.yaml 
+</pre>
+
+# Step 8 : Deploy httpd cluster
+<pre>
+oc create -f httpd.yaml
+</pre>
+
+ALL ok
+<pre>
+oc get pods
+NAME                              READY   STATUS      RESTARTS   AGE
+httpd-24-rhel7-1-deploy           0/1     Completed   0          22s
+httpd-24-rhel7-1-lqkq6            1/1     Running     0          15s
+httpd-operator-5fc9f48797-pxjfk   2/2     Running     0          3m25s
+</pre>
