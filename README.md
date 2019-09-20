@@ -67,3 +67,4 @@ consider to use jinja for template in roles:
     definition: "{{ lookup('template', 'deployment-config.yaml') }}"
 </pre>
 
+# Step 5 : Generate operator manifest

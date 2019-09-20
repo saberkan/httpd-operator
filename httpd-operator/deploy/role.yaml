@@ -6,6 +6,8 @@ metadata:
 rules:
 - apiGroups:
   - ""
+  - route.openshift.io
+  - apps.openshift.io
   resources:
   - pods
   - services
@@ -15,6 +17,7 @@ rules:
   - events
   - configmaps
   - secrets
+  - routes
   verbs:
   - '*'
 - apiGroups:
@@ -53,6 +56,12 @@ rules:
   - replicasets
   verbs:
   - get
+- apiGroups:
+  - apps.openshift.io
+  resources:
+  - deploymentconfigs
+  verbs:
+  - '*'
 - apiGroups:
   - httpd.saberkan.fr
   resources:
