@@ -1,0 +1,12 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  generateName: prometheus-
+  namespace: test
+spec:
+  source: installed-community-test
+  sourceNamespace: test
+  name: prometheus
+  startingCSV: prometheusoperator.0.27.0
+  channel: beta
+

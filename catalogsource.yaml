@@ -1,0 +1,22 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: CatalogSource
+metadata:
+  labels:
+    csc-owner-name: community-operators
+    csc-owner-namespace: openshift-marketplace
+    olm-visibility: hidden
+    openshift-marketplace: "true"
+    opsrc-datastore: "true"
+    opsrc-owner-name: community-operators
+    opsrc-owner-namespace: openshift-marketplace
+    opsrc-provider: community
+  name: community-operators
+  namespace: openshift-marketplace
+spec:
+  address: 172.30.176.102:50051
+  displayName: Community Operators
+  icon:
+    base64data: ""
+    mediatype: ""
+  publisher: Red Hat
+  sourceType: grpc
